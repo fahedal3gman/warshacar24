@@ -1,0 +1,6 @@
+{
+  "name": "الورشة المتنقلة بالرياض - صيانة سيارات عند باب المنزل",
+  "description": "خدمات ورشة صيانة سيارات متنقلة فورية في الموقع وأمام المنزل بمدينة الرياض: إصلاح الكهرباء، الميكانيك، تغيير البطاريات، وبرمجة الكمبيوتر.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
