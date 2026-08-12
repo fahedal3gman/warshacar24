@@ -126,11 +126,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenDispatch
                     {getCategoryIcon(service.category)}
                     <span>{service.title}</span>
                   </div>
-
-                  {/* Starting Price Badge */}
-                  <div className="absolute bottom-4 left-4 bg-amber-500 text-slate-950 font-black px-3 py-1 rounded-lg text-xs shadow-lg">
-                    تبدأ من {service.startingPrice} ريال
-                  </div>
                 </div>
               )}
 

@@ -113,13 +113,16 @@ app.post("/api/diagnose", async (req, res) => {
 
 // Start Express and Vite
 async function startServer() {
-  if (process.env.NODE_ENV !== "production") {
+  const isDev = process.env.NODE_ENV !== "production";
+  if (isDev) {
+    console.log("Starting server in DEVELOPMENT mode with Vite middleware...");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
+    console.log("Starting server in PRODUCTION mode with static dist...");
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {

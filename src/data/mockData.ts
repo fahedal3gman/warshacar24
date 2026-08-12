@@ -18,7 +18,6 @@ export const SERVICES_LIST: ServiceItem[] = [
     subtitle: 'فحص وحل كافة مشاكل التوصيلات، الدينامو، والفيوزات بالكامل',
     description: 'نصلك أينما كنت لإصلاح أعطال كهرباء السيارة بالكامل باستخدام أحدث أجهزة الفحص الميدانية.',
     iconName: 'Zap',
-    startingPrice: 100,
     estimatedTimeMinutes: 25,
     image: '/src/assets/images/mobile_workshop_hero_1786524467174.jpg',
     features: [
@@ -42,7 +41,6 @@ export const SERVICES_LIST: ServiceItem[] = [
     subtitle: 'إصلاح الأعطال الميكانيكية الطارئة وتغيير القطع الاستهلاكية فوراً',
     description: 'فريق ميكانيكي مجهز بأحدث المعدات لتقديم خدمات صيانة المحرك، السيور، الفرامل، والتسريبات أمام منزلكم.',
     iconName: 'Wrench',
-    startingPrice: 120,
     estimatedTimeMinutes: 30,
     image: '/src/assets/images/mobile_workshop_hero_1786524467174.jpg',
     features: [
@@ -62,11 +60,10 @@ export const SERVICES_LIST: ServiceItem[] = [
   {
     id: 'battery',
     category: 'battery',
-    title: 'تغيير واشتراك البطاريات في الموقع',
+    title: 'تغيير وااشتراك البطاريات في الموقع',
     subtitle: 'توفير بطاريات جديدة مع ضمان شامل حتى 24 شهر مع خدمة التركيب مجاناً',
     description: 'خدمة السريعة للبطاريات: اشتراك طوارئ خلال 15 دقيقة، أو استبدال البطارية بأخرى جديدة أصلية مع الضمان عند بابك.',
     iconName: 'BatteryCharging',
-    startingPrice: 50,
     estimatedTimeMinutes: 15,
     image: '/src/assets/images/battery_replacement_1786524479589.jpg',
     features: [
@@ -90,7 +87,6 @@ export const SERVICES_LIST: ServiceItem[] = [
     subtitle: 'فحص أخطاء الطبلون OBD2، برمجة القير والمفاتيح ومسح لمبات الأعطال',
     description: 'أحدث أجهزة فحص الكمبيوتر المعتمدة عالمياً لكشف دقيق لجميع أعطال المحرك، الحساسات، والكمبيوتر بالكامل.',
     iconName: 'Cpu',
-    startingPrice: 150,
     estimatedTimeMinutes: 20,
     image: '/src/assets/images/computer_diagnostics_1786524507149.jpg',
     features: [
@@ -163,7 +159,7 @@ export const CUSTOMER_REVIEWS: CustomerReview[] = [
     author: 'مهندس خالد الغامدي',
     carInfo: 'مرسيدس E300 2019',
     serviceType: 'برمجة كمبيوتر وكشف بالكمبيوتر',
-    location: 'حي الشاطئ - جدة',
+    location: 'حي الصحافة - الرياض',
     rating: 5,
     date: 'قبل يومين',
     comment: 'كانت طالعة لي لمبة الماكينة والقير ينتع. جاني المهندس بأجهزة فحص متطورة ووجد المشكلة بحساس الأكسجين وعمل إعادة برمجة وثروتل ريست. الشغل ممتاز جداً ووفر علي روحة الورش والسطحات.',
@@ -174,7 +170,7 @@ export const CUSTOMER_REVIEWS: CustomerReview[] = [
     author: 'سعود الدوسري',
     carInfo: 'فورد تورس 2020',
     serviceType: 'إصلاح كهرباء ومولد الدينامو',
-    location: 'حي الحزام - الخبر',
+    location: 'حي النرجس - الرياض',
     rating: 5,
     date: 'قبل 3 أيام',
     comment: 'خدمة احترافية بكل المقاييس. طفيت الكهرباء كاملة علي وأنا بالدوام، الفني وصل وفحص الدينامو واكتشف فيوز رئيسي محروق وسلك متآكل وتم الإصلاح بموقع السيارة بنفس الساعة.',
@@ -185,7 +181,7 @@ export const CUSTOMER_REVIEWS: CustomerReview[] = [
     author: 'عبدالمجيد الشهري',
     carInfo: 'هيونداي سوناتا 2022',
     serviceType: 'تغيير فحمات فرامل ميكانيك متنقل',
-    location: 'حي الصفا - جدة',
+    location: 'حي العليا - الرياض',
     rating: 5,
     date: 'قبل أسبوع',
     comment: 'طلبهم عن طريق الواتساب وسريعين جداً بالرد. غيروا فحمات فرامل أصلية قدام وورا عند باب البيت بكل نظافة وترتيب. أطلبهم وأنا مرتاح.',

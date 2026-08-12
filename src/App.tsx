@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
@@ -7,9 +7,25 @@ import { Testimonials } from './components/Testimonials';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
+import { LegalModal, CookieBanner } from './components/LegalModals';
 import { CONTACT_INFO } from './data/mockData';
 
 export default function App() {
+  const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'about' | null>(null);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    const acceptedCookies = localStorage.getItem('cookies_accepted');
+    if (!acceptedCookies) {
+      setShowCookieBanner(true);
+    }
+  }, []);
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem('cookies_accepted', 'true');
+    setShowCookieBanner(false);
+  };
+
   const handleOpenDispatch = (category?: string) => {
     let serviceName = 'صيانة متنقلة';
     if (category === 'electrical') serviceName = 'إصلاح كهرباء السيارات والدينامو';
@@ -49,10 +65,24 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenLegal={(type) => setLegalModalType(type)} />
 
       {/* Mandatory Floating WhatsApp & Call Buttons & Mobile Sticky Bar */}
       <FloatingActions onOpenDispatch={() => handleOpenDispatch()} />
+
+      {/* Google Ads Compliance Legal Modals */}
+      <LegalModal
+        type={legalModalType}
+        onClose={() => setLegalModalType(null)}
+      />
+
+      {/* Cookie & Privacy Consent Banner */}
+      {showCookieBanner && (
+        <CookieBanner
+          onAccept={handleAcceptCookies}
+          onOpenPrivacy={() => setLegalModalType('privacy')}
+        />
+      )}
 
     </div>
   );

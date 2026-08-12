@@ -2,7 +2,11 @@ import React from 'react';
 import { Wrench, Phone, MessageSquare, MapPin, Clock, ShieldCheck, Heart } from 'lucide-react';
 import { CONTACT_INFO } from '../data/mockData';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenLegal?: (type: 'privacy' | 'terms' | 'about') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   return (
     <footer className="bg-slate-950 text-slate-300 pt-16 pb-24 md:pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -39,14 +43,34 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Coverage Cities */}
+          {/* Legal & Compliance Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-white border-b border-slate-800 pb-2">تغطية أحياء مدينة الرياض</h4>
+            <h4 className="text-sm font-bold text-white border-b border-slate-800 pb-2">سياسات وإفصاح جوجل إعلانات</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#coverage" className="hover:text-amber-400 transition-colors">• شمال الرياض (الملقا، حطين، الياسمين)</a></li>
-              <li><a href="#coverage" className="hover:text-amber-400 transition-colors">• شرق الرياض (الروضة، الحمراء، النسيم)</a></li>
-              <li><a href="#coverage" className="hover:text-amber-400 transition-colors">• وسط وجنوب الرياض (العليا، السويدي)</a></li>
-              <li><a href="#coverage" className="hover:text-amber-400 transition-colors">• غرب الرياض والدرعية</a></li>
+              <li>
+                <button
+                  onClick={() => onOpenLegal?.('privacy')}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • سياسة الخصوصية وحماية البيانات
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenLegal?.('terms')}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • الشروط والأحكام وإخلاء المسؤولية
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenLegal?.('about')}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • عن مزود الخدمة ونطاق العمل
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -79,9 +103,25 @@ export const Footer: React.FC = () => {
         {/* Copyright & Guarantees */}
         <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} جميع الحقوق محفوظة لـ {CONTACT_INFO.companyName} - صيانة واصلاح السيارات عند باب المنزل.</p>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>ضمان رسمي معتمد على كافة أعمال الصيانة وقطع الغيار</span>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onOpenLegal?.('privacy')}
+              className="hover:text-slate-300 underline"
+            >
+              الخصوصية
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => onOpenLegal?.('terms')}
+              className="hover:text-slate-300 underline"
+            >
+              الشروط
+            </button>
+            <span>•</span>
+            <div className="flex items-center gap-1">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>مزود خدمة معتمد بالرياض</span>
+            </div>
           </div>
         </div>
 

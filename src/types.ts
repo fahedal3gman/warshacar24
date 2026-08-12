@@ -7,7 +7,7 @@ export interface ServiceItem {
   subtitle: string;
   description: string;
   iconName: string;
-  startingPrice: number;
+  startingPrice?: number;
   estimatedTimeMinutes: number;
   image?: string;
   features: string[];
