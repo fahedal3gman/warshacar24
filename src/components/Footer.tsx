@@ -36,10 +36,66 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
           <div className="space-y-3">
             <h4 className="text-sm font-bold text-white border-b border-slate-800 pb-2">خدمات الصيانة الميدانية</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">• إصلاح كهرباء السيارات والدينامو</a></li>
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">• الميكانيك السريع وإصلاح الفرامل</a></li>
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">• تغيير واشتراك البطاريات بالضمان</a></li>
-              <li><a href="#services" className="hover:text-amber-400 transition-colors">• كشف وبرمجة كمبيوتر OBD2</a></li>
+              <li>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('service-electrical');
+                    if (el) {
+                      const offset = 90;
+                      const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                      window.scrollTo({ top: pos, behavior: 'smooth' });
+                    }
+                  }}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • إصلاح كهرباء السيارات والدينامو
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('service-mechanical');
+                    if (el) {
+                      const offset = 90;
+                      const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                      window.scrollTo({ top: pos, behavior: 'smooth' });
+                    }
+                  }}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • الميكانيك السريع وإصلاح الفرامل
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('service-battery');
+                    if (el) {
+                      const offset = 90;
+                      const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                      window.scrollTo({ top: pos, behavior: 'smooth' });
+                    }
+                  }}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • تغيير واشتراك البطاريات بالضمان
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('service-computer');
+                    if (el) {
+                      const offset = 90;
+                      const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                      window.scrollTo({ top: pos, behavior: 'smooth' });
+                    }
+                  }}
+                  className="hover:text-amber-400 transition-colors text-right"
+                >
+                  • كشف وبرمجة كمبيوتر OBD2
+                </button>
+              </li>
             </ul>
           </div>
 

@@ -62,11 +62,23 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenDispatch
                   setTimeout(() => {
                     const el = document.getElementById(`service-${s.id}`);
                     if (el) {
-                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      const headerOffset = 90;
+                      const elementPosition = el.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+
+                      el.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900');
+                      setTimeout(() => {
+                        el.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900');
+                      }, 2000);
                     }
-                  }, 50);
+                  }, 60);
                 }}
-                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-850 text-slate-300 hover:text-amber-400 font-bold flex items-center gap-2 transition-all"
+                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-850 text-slate-300 hover:text-amber-400 font-bold flex items-center gap-2 transition-all cursor-pointer"
               >
                 {getCategoryIcon(s.category)}
                 <span className="truncate">{s.title}</span>

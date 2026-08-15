@@ -60,46 +60,94 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDispatch }) => {
             {/* Core Service Pills */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
               <button 
-                onClick={() => onOpenDispatch('electrical')}
-                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group"
+                onClick={() => {
+                  const el = document.getElementById('service-electrical');
+                  if (el) {
+                    const offset = 90;
+                    const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                    el.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900');
+                    setTimeout(() => el.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900'), 2000);
+                  }
+                }}
+                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                   <Zap className="w-4 h-4" />
                 </div>
-                <h3 className="text-xs font-extrabold text-white">اصلاح الكهرباء</h3>
+                <h3 className="text-xs font-extrabold text-white flex items-center justify-between">
+                  <span>اصلاح الكهرباء</span>
+                  <span className="text-[10px] text-amber-400 font-normal">عرض ⬇️</span>
+                </h3>
                 <p className="text-[10px] text-slate-400">دينامو، سلف، فيوزات</p>
               </button>
 
               <button 
-                onClick={() => onOpenDispatch('mechanical')}
-                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group"
+                onClick={() => {
+                  const el = document.getElementById('service-mechanical');
+                  if (el) {
+                    const offset = 90;
+                    const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                    el.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900');
+                    setTimeout(() => el.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900'), 2000);
+                  }
+                }}
+                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                   <Wrench className="w-4 h-4" />
                 </div>
-                <h3 className="text-xs font-extrabold text-white">الميكانيك المتنقل</h3>
+                <h3 className="text-xs font-extrabold text-white flex items-center justify-between">
+                  <span>الميكانيك المتنقل</span>
+                  <span className="text-[10px] text-blue-400 font-normal">عرض ⬇️</span>
+                </h3>
                 <p className="text-[10px] text-slate-400">فرامل، حرارة، سيور</p>
               </button>
 
               <button 
-                onClick={() => onOpenDispatch('battery')}
-                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group"
+                onClick={() => {
+                  const el = document.getElementById('service-battery');
+                  if (el) {
+                    const offset = 90;
+                    const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                    el.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900');
+                    setTimeout(() => el.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900'), 2000);
+                  }
+                }}
+                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                   <BatteryCharging className="w-4 h-4" />
                 </div>
-                <h3 className="text-xs font-extrabold text-white">تغيير البطاريات</h3>
+                <h3 className="text-xs font-extrabold text-white flex items-center justify-between">
+                  <span>تغيير البطاريات</span>
+                  <span className="text-[10px] text-emerald-400 font-normal">عرض ⬇️</span>
+                </h3>
                 <p className="text-[10px] text-slate-400">اشتراك أو تبديل جديد</p>
               </button>
 
               <button 
-                onClick={() => onOpenDispatch('computer')}
-                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group"
+                onClick={() => {
+                  const el = document.getElementById('service-computer');
+                  if (el) {
+                    const offset = 90;
+                    const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                    el.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900');
+                    setTimeout(() => el.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900'), 2000);
+                  }
+                }}
+                className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition-all text-right group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                   <Cpu className="w-4 h-4" />
                 </div>
-                <h3 className="text-xs font-extrabold text-white">برمجة الكمبيوتر</h3>
+                <h3 className="text-xs font-extrabold text-white flex items-center justify-between">
+                  <span>برمجة الكمبيوتر</span>
+                  <span className="text-[10px] text-purple-400 font-normal">عرض ⬇️</span>
+                </h3>
                 <p className="text-[10px] text-slate-400">فحص OBD2 وتصفير أخطاء</p>
               </button>
             </div>
