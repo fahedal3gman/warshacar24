@@ -1,5 +1,5 @@
-import React from 'react';
-import { Phone, Wrench, Shield, Clock, MapPin, Zap, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Wrench, Shield, Clock, MapPin, Zap, MessageSquare, BatteryCharging, Cpu, ChevronDown } from 'lucide-react';
 import { CONTACT_INFO } from '../data/mockData';
 
 interface HeaderProps {
@@ -8,6 +8,16 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenDispatch, activeVansCount }) => {
+  const [showServicesMenu, setShowServicesMenu] = useState(false);
+
+  const handleNavClick = (id: string) => {
+    setShowServicesMenu(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl">
       {/* Top Emergency Ticker */}
@@ -48,7 +58,50 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDispatch, activeVansCount 
 
           {/* Nav Links Desktop */}
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
-            <a href="#services" className="hover:text-amber-400 transition-colors">الخدمات</a>
+            {/* Dropdown for Services */}
+            <div className="relative">
+              <button
+                onClick={() => setShowServicesMenu(!showServicesMenu)}
+                className="flex items-center gap-1 hover:text-amber-400 transition-colors py-2 focus:outline-none"
+              >
+                <span>خدمات الصيانة الميدانية</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${showServicesMenu ? 'rotate-180' : ''}`} />
+              </button>
+
+              {showServicesMenu && (
+                <div className="absolute top-full right-0 mt-2 w-64 bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl p-2 space-y-1 text-xs z-50">
+                  <button
+                    onClick={() => handleNavClick('service-electrical')}
+                    className="w-full text-right flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-400 transition-colors"
+                  >
+                    <Zap className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span>إصلاح كهرباء السيارات والدينامو</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('service-mechanical')}
+                    className="w-full text-right flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-400 transition-colors"
+                  >
+                    <Wrench className="w-4 h-4 text-blue-400 shrink-0" />
+                    <span>الميكانيك المتنقل والفرامل</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('service-battery')}
+                    className="w-full text-right flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-400 transition-colors"
+                  >
+                    <BatteryCharging className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>تغيير واشتراك البطاريات</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('service-computer')}
+                    className="w-full text-right flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-amber-400 transition-colors"
+                  >
+                    <Cpu className="w-4 h-4 text-purple-400 shrink-0" />
+                    <span>برمجة وفحص بالكمبيوتر</span>
+                  </button>
+                </div>
+              )}
+            </div>
+
             <a href="#coverage" className="hover:text-amber-400 transition-colors">مناطق التغطية</a>
             <a href="#reviews" className="hover:text-amber-400 transition-colors">تقييمات العملاء</a>
             <a href="#faq" className="hover:text-amber-400 transition-colors">الأسئلة الشائعة</a>

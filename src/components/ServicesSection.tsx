@@ -41,6 +41,40 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenDispatch
           </p>
         </div>
 
+        {/* Quick In-Page Service Links Bar */}
+        <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 mb-8 shadow-xl max-w-4xl mx-auto">
+          <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-2 mb-3">
+            <span className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+              <Zap className="w-4 h-4" />
+              <span>روابط التنقل السريع بين الخدمات الميدانية:</span>
+            </span>
+            <span className="text-[11px] text-slate-400">انتقال مباشر للخدمة المحددة</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+            {SERVICES_LIST.map((s) => (
+              <a
+                key={`quick-link-${s.id}`}
+                href={`#service-${s.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActiveTab('all');
+                  setTimeout(() => {
+                    const el = document.getElementById(`service-${s.id}`);
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 50);
+                }}
+                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-850 text-slate-300 hover:text-amber-400 font-bold flex items-center gap-2 transition-all"
+              >
+                {getCategoryIcon(s.category)}
+                <span className="truncate">{s.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
         {/* Service Category Filter Tabs */}
         <div className="flex items-center justify-center gap-2 flex-wrap mb-10">
           <button
@@ -108,7 +142,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenDispatch
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-xl hover:border-amber-500/40 transition-all flex flex-col group"
+              id={`service-${service.id}`}
+              className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-xl hover:border-amber-500/40 transition-all flex flex-col group scroll-mt-28"
             >
               {/* Card Image Banner */}
               {service.image && (
